@@ -66,8 +66,8 @@ void *customer(void *thread_data){
 			printf("\n----------------------------\n");
 			printf("My name is %s i spent all my money", name);
 			printf("\n----------------------------\n");
-			money = 0;
 			pthread_mutex_unlock(&mutex);
+			money = 0;
 		}
 		sleep(3);
 	}
@@ -79,8 +79,8 @@ void *loader(void *thread_data){
 	int product = 500, i;
 
 	while(1){
-		pthread_mutex_lock(&mutex);
 		i = rand_from_to(0, 4);
+		pthread_mutex_lock(&mutex);
 		SHOP[i] += product;
 		printf("\n----------------------------\n");
 		printf("I'm load shop number %d and it have %d product", i, SHOP[i]);
